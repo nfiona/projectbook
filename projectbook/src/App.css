@@ -1,25 +1,25 @@
 .App {
   background-image: url("../public/background.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   font-family: 'Open Sans', sans-serif;
   font-stretch: extra-expanded;
 
 }
 
 .main-heading {
-  background-color: black;
-  opacity: 0.7;
+  background-color: #252B2B;
+  opacity: 0.75;
   padding-top: 20px;
   font-family: 'Prata', serif;
   text-align: left;
-  color: white;
   text-decoration: none;
-
 }
 
 .main-heading a {
   text-decoration: none;
   color: white;
+  display: inline;
 }
 
 nav li {
@@ -28,49 +28,119 @@ nav li {
 }
 
 #heading {
-  font-size: 45px;
-  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  margin-left: -5px;
+  letter-spacing: 3px;
+  display: inline;
 }
 
 #nav-one {
   float: right;
   padding: 10px;
+  margin-right: 45px;
+  letter-spacing: 2px;
 }
 
 #nav-two {
   float: right;
     padding: 10px;
+    letter-spacing: 2px;
+    margin-right: 15px;
 }
-
-
 
 h3 {
   color: white;
   font-family: 'Open Sans', sans-serif;
-
 }
 
 .add-project {
-  background-color: black;
-  opacity: 0.7;
   text-align: center;
 }
 
 form {
   color: white;
   font-family: 'Open Sans', sans-serif;
-  font-stretch: expanded;
-  background-color: black;
-  opacity: 0.7;
-  width: 400px;
+  font-stretch: expanded !important;
+  background-color:  #252B2B;
+  opacity: 0.75;
   text-align: center;
+  padding: 1px 0 12px 0;
+  letter-spacing: 2px;
+}
 
+form input {
+  color: black;
+}
+
+form h5 {
+  font-family: 'Prata', serif;
+}
+
+.form-group {
+  padding: 0 10px 10px 10px;
+  font-size: 12px;
+}
+
+.Project, .Projects {
+  color: #566263;
+}
+.Project strong {
+  font-weight: 600;
+}
+.Project img{
+  max-width: 200px;
+}
+
+.Project {
+  max-width: 200px;
+}
+
+.Projects h4 {
+  font-family: 'Prata', serif;
+  color: white;
+  padding: 5px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  background-color: #252B2B;
+  opacity: 0.75;
+  width: 200px;
+}
+
+select {
+  color: black !important;
+}
+
+.projects-wrapper {
+  display: flex;
+}
+
+.App span:nth-child(1) {
+  position: absolute;
+}
+
+.App span:nth-child(3) {
+  position: absolute;
+}
+.App span:nth-child(1) {
+  animation: App-span-spin infinite 2s linear ;
+  height: 50px;
+}
+
+.App span:nth-child(3) {
+  animation: App-span-spin infinite 2s linear ;
+  height: 50px;
+}
+.App span:nth-child(2) {
+  margin-left: 30px;
+  margin-right: 5px;
 }
 
 
-
-
-
+@keyframes App-span-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 /*.App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

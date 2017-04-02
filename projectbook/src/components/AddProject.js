@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
+
 
 class AddProject extends Component {
   // submit the data of input into state
@@ -24,13 +26,14 @@ class AddProject extends Component {
     // add validated input to state
     } else {
       this.setState({newProject: {
+        id: uuid.v4(),
         title: this.refs.title.value,
         category: this.refs.category.value,
         description: this.refs.description.value,
         source: this.refs.source.value,
         cover_img: this.refs.cover_img.value
       }}, function() {
-        console.log(this.state)
+          this.props.addProject(this.state.newProject);
       }
     )}
       // console.log(this.refs.title.value);
@@ -40,40 +43,46 @@ class AddProject extends Component {
 
   render() {
     let categoryOptions = this.props.categories.sort().map(category => {
-      return <option key={category} value="category">{category}</option>
+      return <option key={category} value={category}>{category}</option>
     })
     return (
       <div>
-          <form onSubmit={this.handleSubmit.bind(this)}>
-              <h3> Add Project </h3>
-            <div>
-              <label> Title </label><br />
-              <input type="text" ref="title" />
+          <form className="form-inline" onSubmit={this.handleSubmit.bind(this)}>
+              <h5> <strong> Add Project </strong> </h5>
+            <div className="form-group">
+              <label> Title </label> <br />
+              <input type="text" ref="title"/>
             </div>
-            <div>
-              <label> Category </label><br />
-              <select ref="category">
+            <div className="form-group">
+              <label id="category"> Category </label><br />
+              <select ref="category" placeholder="Category..">
               {categoryOptions}
               </select>
             </div>
-            <div>
+            <div className="form-group">
               <label> Description </label><br />
               <input type="text" ref="description" />
             </div>
-            <div>
+            <div className="form-group">
               <label> Link to Source </label><br />
               <input type="text" ref="source" />
             </div>
-            <div>
+            <div className="form-group">
               <label> Cover Image </label><br />
               <input type="text" ref="cover_img" />
             </div>
              <br />
-              <input type="submit" value="Submit" />
+              <button type="submit" className="btn btn-default"> Add </button>
           </form>
       </div>
     );
   }
+}
+
+// Poperty validation
+AddProject.propTypes = {
+  categories: React.PropTypes.array,
+  addProject: React.PropTypes.func
 }
 
 export default AddProject;
