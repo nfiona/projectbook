@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Projects from './components/Projects'
 import AddProject from './components/AddProject'
+import BeSearchContainer from './components/BeSearchContainer'
  // unique id generator
 import uuid from 'uuid';
 import './App.css';
@@ -68,6 +69,10 @@ class App extends Component {
         <AddProject addProject={this.handleAddProject.bind(this)}/>
         <br />
         <Projects onDelete={this.handleDeleteProject.bind(this)} projects={this.state.projects}/>
+          <div className="be-search">
+            <p>Behance</p>
+            <BeSearchContainer />
+          </div>
       </div>
     );
   }
