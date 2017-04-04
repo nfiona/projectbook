@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Projects from './components/Projects'
 import AddProject from './components/AddProject'
 import BeSearchContainer from './components/BeSearchContainer'
+
  // unique id generator
 import uuid from 'uuid';
 import './App.css';
@@ -24,7 +25,30 @@ class App extends Component {
         cover_img: "https://s-media-cache-ak0.pinimg.com/564x/35/d3/c4/35d3c46e871bb168527524cfd79acc64.jpg",
         description: "Ruby on Rails App",
         url: "#"
-
+      },
+      {
+        id: uuid.v4(),
+        category: "Web Development",
+        title: "Test1",
+        cover_img: "https://s-media-cache-ak0.pinimg.com/564x/35/d3/c4/35d3c46e871bb168527524cfd79acc64.jpg",
+        description: "Ruby on Rails App",
+        url: "#"
+      },
+      {
+        id: uuid.v4(),
+        category: "Web Development",
+        title: "Test2",
+        cover_img: "https://s-media-cache-ak0.pinimg.com/564x/35/d3/c4/35d3c46e871bb168527524cfd79acc64.jpg",
+        description: "Ruby on Rails App",
+        url: "#"
+      },
+      {
+        id: uuid.v4(),
+        category: "Web Development",
+        title: "Test3",
+        cover_img: "https://s-media-cache-ak0.pinimg.com/564x/35/d3/c4/35d3c46e871bb168527524cfd79acc64.jpg",
+        description: "Ruby on Rails App",
+        url: "#"
       },
       {
         id: uuid.v4(),
@@ -58,21 +82,24 @@ class App extends Component {
         <div className="main-heading">
           <nav>
             <ul>
-          <li id="heading"> <a href="#"> <span> :: </span> <span id="main-heading"> ProjectBook </span> <span> :: </span> </a> </li>
-          <li id="nav-one"> <a href="#">  Inspirations </a> </li>
-          <li id="nav-two"> <a href="#"> Favorites </a> </li>
-          </ul>
-         </nav>
+              <li id="heading"> <a href="#"> <span> :: </span> <span id="main-heading"> ProjectBook </span> <span> :: </span> </a> </li>
+              <li id="nav-one"> <a href="#">  Inspirations </a> </li>
+              <li id="nav-two"> <a href="#"> Favorites </a> </li>
+            </ul>
+          </nav>
         </div>
-        <br />
-        <br />
-        <AddProject addProject={this.handleAddProject.bind(this)}/>
-        <br />
-        <Projects onDelete={this.handleDeleteProject.bind(this)} projects={this.state.projects}/>
-          <div className="be-search">
-            <p>Behance</p>
-            <BeSearchContainer />
-          </div>
+            <br />
+            <br />
+          <AddProject addProject={this.handleAddProject.bind(this)}/>
+            <br />
+            <div className="main-page">
+                <div className="all-projects">
+                  <Projects onDelete={this.handleDeleteProject.bind(this)} projects={this.state.projects}/>
+                </div>
+                 <div className="be-searchBox">
+                    <BeSearchContainer />
+                </div>
+            </div>
       </div>
     );
   }

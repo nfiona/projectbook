@@ -10,7 +10,7 @@ class ProjectItem extends Component {
   render() {
     return (
       <div className="Project">
-      <img src={this.props.project.cover_img} alt="" />
+      <a href="#"> <img src={this.props.project.cover_img} alt="" /> </a>
       <h6> <strong> Title: </strong> {this.props.project.title}  </h6>
       <h6> <strong> Category: </strong> {this.props.project.category} </h6>
       <h6> <strong> Description: </strong> {this.props.project.description} </h6>

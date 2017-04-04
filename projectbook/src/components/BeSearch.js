@@ -6,10 +6,13 @@ class BeSearch extends Component {
     let {handleSearchInput, handleSubmitQuery, query} = this.props
     return (
       <div className="searchBox">
-      <form onSubmit={(e) => handleSubmitQuery(e)}>
-        <input onChange={(e) => handleSearchInput(e)} value={query} type="text" placeholder="Enter project keyword(s)..." />
-        <button type="submit"> Search </button>
-      </form>
+       <form className="form-inline" onSubmit={(e) => handleSubmitQuery(e)}>
+          <div className="form-group">
+            <label> Search on Behance </label> <br />
+             <input onChange={(e) => handleSearchInput(e)} value={query} type="text" placeholder="Keyword(s)..." /> <br />
+            <button type="submit" className="btn btn-default"> Search </button>
+          </div>
+       </form>
       </div>
     )
   }
