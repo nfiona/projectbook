@@ -50,6 +50,7 @@
     "postcss-loader": "1.2.2",
     "promise": "7.1.1",
     "react-dev-utils": "^0.5.2",
+    "react-scripts": "0.8.4",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.14.0",
@@ -58,9 +59,11 @@
     "whatwg-fetch": "2.0.2"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "start": "react-scripts/start.js",
+    "start-dev": "nf start -p 3000",
+    "build": "react-scripts/build.js",
+    "test": "react-scripts/test.js --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -92,6 +95,6 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "./node_modules/react-scripts/config/eslint.js"
   }
 }
