@@ -10,7 +10,7 @@ class Projects extends Component {
     if(this.props.projects) {
       projectItems = this.props.projects.map(project => {
         return (
-          <ProjectItem project={project} key={project['_id']} onDelete={this.deleteProject.bind(this)} />
+          <ProjectItem project={project} key={ project['_id'] } onDelete={this.deleteProject.bind(this)} />
         )
       })
     }

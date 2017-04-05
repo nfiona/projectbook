@@ -4,7 +4,7 @@ import App from './App';
 
 ReactDOM.render(
   <App
-  url='http://localhost:3001/api/comments'
+  url='http://localhost:3001/api/projects'
   pollInterval={2000} />,
   document.getElementById('root')
 );

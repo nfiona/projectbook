@@ -67,34 +67,34 @@ router.get('/', function(req, res) {
    });
  });
 
- // // Add route to specific project, and add PUT method to update the project based on the ID
- //  router.route('/projects/:project_id')
- //  .put((req,res) => {
- //    Project.findById(req.params.project_id, function(err,comment) {
- //      if (err)
- //       res.send(err);
- //       // setting new project values, if nothing was changed the field will not be altered
- //       (req.body.category) ? project.category = req.body.category : null;
- //       (req.body.title) ? project.title = req.body.title : null;
- //       (req.body.cover_img) ? project.cover_img = req.body.cover_img : null;
- //       (req.body.description) ? project.description = req.body.description : null;
- //       (req.body.url) ? project.url = req.body.url : null;
- //       // save project
- //       project.save((err) => {
- //         if(err)
- //         res.send(err);
- //         res.json({ message: 'Project has been updated'});
- //       });
- //    });
- //  });
+ // Add route to specific project, and add PUT method to update the project based on the ID
+  router.route('/projects/:project_id')
+  .put((req,res) => {
+    Project.findById(req.params.project_id, function(err,project) {
+      if (err)
+       res.send(err);
+       // setting new project values, if nothing was changed the field will not be altered
+       (req.body.category) ? project.category = req.body.category : null;
+       (req.body.title) ? project.title = req.body.title : null;
+       (req.body.cover_img) ? project.cover_img = req.body.cover_img : null;
+       (req.body.description) ? project.description = req.body.description : null;
+       (req.body.url) ? project.url = req.body.url : null;
+       // save project
+       project.save((err) => {
+         if(err)
+         res.send(err);
+         res.json({ message: 'Project has been updated'});
+       });
+    });
+  })
  // delete
- // .delete((req,res) => {
- //   Project.remove({ _id: req.params.project_id}, (err, project) => {
- //     if(err)
- //      res.send(err);
- //      res.json({message: 'Project has been deleted'})
- //   })
- // });
+ .delete((req,res) => {
+   Project.remove({ _id: req.params.project_id}, (err, project) => {
+     if(err)
+      res.send(err);
+      res.json({message: 'Project has been deleted'})
+   })
+ });
 
 //Use router config when calling /api
  app.use('/api', router);

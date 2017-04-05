@@ -6,9 +6,8 @@ class AddProject extends Component {
   // submit the data of input into state
   constructor() {
     super();
-    this.state = {
-      newProject: []
-    }
+    this.state = { newProject: [] };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   // set category options
   static defaultProps = {
@@ -16,6 +15,7 @@ class AddProject extends Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     // input validation
     if(this.refs.title.value === ''){
       alert("Please Add Title")
@@ -25,6 +25,8 @@ class AddProject extends Component {
       alert("Cover Image is required")
     // add validated input to state
     } else {
+      let newProject = this.state.newProject
+      this.props.onProjectSubmit({ newProject: newProject})
       this.setState({newProject: {
         id: uuid.v4(),
         title: this.refs.title.value,
@@ -33,11 +35,10 @@ class AddProject extends Component {
         source: this.refs.source.value,
         cover_img: this.refs.cover_img.value
       }}, function() {
-          this.props.addProject(this.state.newProject);
-      }
+          this.props.onProjectSubmit(this.state.newProject);
+      },
+      console.log(this.state.newProject)
     )}
-      // console.log(this.refs.title.value);
-      e.preventDefault();
 }
 
 
@@ -72,7 +73,7 @@ class AddProject extends Component {
               <input type="text" ref="cover_img" />
             </div>
              <br />
-              <button type="submit" className="btn btn-default"> Add </button>
+              <button type="submit" className="btn btn-default" value='Post'> Add </button>
           </form>
       </div>
     );

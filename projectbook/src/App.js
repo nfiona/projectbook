@@ -13,30 +13,33 @@ class App extends Component {
   constructor() {
     super();
     this.state = { projects: [] };
-    this.loadProjectsFromServer = this.loadProjectsFromServer.bind(this);
-    this.handleProjectSubmit = this.handleProjectSubmit.bind(this);
+    // this.loadProjectsFromServer = this.loadProjectsFromServer.bind(this);
+    // this.handleProjectSubmit = this.handleProjectSubmit.bind(this);
     // this.handleProjectDelete = this.handleProjectDelete.bind(this);
     // this.handleProjectUpdate = this.handleProjectUpdate.bind(this);
   }
 
   loadProjectsFromServer() {
     axios.get(this.props.url).then(res => {
-      this.setState({ projects: res.projects});
+      this.setState({ projects: res.data});
     })
   }
   handleProjectSubmit(project) {
-    let projects = this.state.projects;
-    project.id = Date.now();
-    let newProjects = projects.concat([project]);
-    this.setState( { projects: newProjects});
-    axios.post(this.props.url, project).catch(err => {
+    // let projects = this.state.projects;
+    // project.id = Date.now();
+    // let newProject = this.state.projects.concat([project]);
+    // this.setState( { projects: newProject});
+    axios.post(this.props.url, project)
+    .then(res => {
+      // this.setState({ projects: res.data });
+      this.loadProjectsFromServer()
+    }).catch(err => {
       console.error(err);
-      this.setState({ projects: projects});
-    })
+    });
   }
   componentDidMount() {
     this.loadProjectsFromServer();
-    setInterval(this.loadProjectsFromServer, this.props.pollInterval);
+    // setInterval(this.loadProjectsFromServer, this.props.pollInterval);
   }
 
   // set local data
@@ -114,7 +117,7 @@ class App extends Component {
         </div>
             <br />
             <br />
-          <AddProject onProjectSubmit={this.handleProjectSubmit} addProject={this.handleAddProject.bind(this)}/>
+          <AddProject onProjectSubmit={this.handleProjectSubmit.bind(this)} />
             <br />
             <div className="main-page">
                 <div className="all-projects">
