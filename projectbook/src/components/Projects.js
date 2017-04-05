@@ -10,14 +10,14 @@ class Projects extends Component {
     if(this.props.projects) {
       projectItems = this.props.projects.map(project => {
         return (
-          <ProjectItem onDelete={this.deleteProject.bind(this)}  key={project.title} project={project} />
+          <ProjectItem project={project} key={project['_id']} onDelete={this.deleteProject.bind(this)} />
         )
       })
     }
     return (
       <div className="Projects">
         <h4> Your Projects </h4>
-        <div className="projects-wrapper"> 
+        <div className="projects-wrapper">
         {projectItems}
         </div>
       </div>

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Projects from './components/Projects'
 import AddProject from './components/AddProject'
 import BeSearchContainer from './components/BeSearchContainer'
+// import DATA from '../data'
 
  // unique id generator
 import uuid from 'uuid';
@@ -10,9 +12,31 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      projects: []
-    }
+    this.state = { projects: [] };
+    this.loadProjectsFromServer = this.loadProjectsFromServer.bind(this);
+    this.handleProjectSubmit = this.handleProjectSubmit.bind(this);
+    // this.handleProjectDelete = this.handleProjectDelete.bind(this);
+    // this.handleProjectUpdate = this.handleProjectUpdate.bind(this);
+  }
+
+  loadProjectsFromServer() {
+    axios.get(this.props.url).then(res => {
+      this.setState({ projects: res.projects});
+    })
+  }
+  handleProjectSubmit(project) {
+    let projects = this.state.projects;
+    project.id = Date.now();
+    let newProjects = projects.concat([project]);
+    this.setState( { projects: newProjects});
+    axios.post(this.props.url, project).catch(err => {
+      console.error(err);
+      this.setState({ projects: projects});
+    })
+  }
+  componentDidMount() {
+    this.loadProjectsFromServer();
+    setInterval(this.loadProjectsFromServer, this.props.pollInterval);
   }
 
   // set local data
@@ -90,11 +114,11 @@ class App extends Component {
         </div>
             <br />
             <br />
-          <AddProject addProject={this.handleAddProject.bind(this)}/>
+          <AddProject onProjectSubmit={this.handleProjectSubmit} addProject={this.handleAddProject.bind(this)}/>
             <br />
             <div className="main-page">
                 <div className="all-projects">
-                  <Projects onDelete={this.handleDeleteProject.bind(this)} projects={this.state.projects}/>
+                  <Projects onDelete={this.handleDeleteProject.bind(this)} projects={this.state.projects} />
                 </div>
                  <div className="be-searchBox">
                     <BeSearchContainer />

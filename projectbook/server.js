@@ -35,33 +35,38 @@ router.get('/', function(req, res) {
   res.json({ message: 'API initialized'});
 });
 
- // // adding /projects route to /api router
- // router.route('/projects')
- //  // retreive all projects from database
- //  .get((req, res) => {
- //    Project.find((err, projects) => {
- //      if (err)
- //        res.send(err);
- //        res.json(projects)
- //    })
- //  })
- //
- // // post new project
- // app.post((req, res) => {
- //   var project = new Project();
- //   (req.body.category) ? project.category = req.body.category : null;
- //   (req.body.title) ? project.title = req.body.title : null;
- //   (req.body.cover_img) ? project.cover_img = req.body.cover_img : null;
- //   (req.body.description) ? project.description = req.body.description : null;
- //   (req.body.url) ? project.url = req.body.url : null;
- //
- //   project.save((err) => {
- //     if (err)
- //     res.send(err);
- //     res.json({ message: 'Project successfully added!'})
- //   });
- // });
- //
+ // adding /projects route to /api router
+ router.route('/projects')
+  // retreive all projects from database
+  .get((req, res) => {
+    Project.find((err, projects) => {
+      if (err)
+        res.send(err);
+        res.json(projects)
+    });
+  })
+
+ // post new project
+ .post((req, res) => {
+   var project = new Project();
+   project.category = req.body.category;
+   project.title = req.body.title;
+   project.cover_img = req.body.cover_img;
+   project.description = req.body.description;
+   project.url = req.body.url;
+  //  (req.body.category) ? project.category = req.body.category : null;
+  //  (req.body.title) ? project.title = req.body.title : null;
+  //  (req.body.cover_img) ? project.cover_img = req.body.cover_img : null;
+  //  (req.body.description) ? project.description = req.body.description : null;
+  //  (req.body.url) ? project.url = req.body.url : null;
+
+   project.save((err) => {
+     if (err)
+     res.send(err);
+     res.json({ message: 'Project successfully added!'})
+   });
+ });
+
  // // Add route to specific project, and add PUT method to update the project based on the ID
  //  router.route('/projects/:project_id')
  //  .put((req,res) => {
