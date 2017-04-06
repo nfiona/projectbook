@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
 
 
 class AddProject extends Component {
@@ -7,7 +6,7 @@ class AddProject extends Component {
   constructor() {
     super();
     this.state = { newProject: [] };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
   // set category options
   static defaultProps = {
@@ -25,10 +24,7 @@ class AddProject extends Component {
       alert("Cover Image is required")
     // add validated input to state
     } else {
-      let newProject = this.state.newProject
-      this.props.onProjectSubmit({ newProject: newProject})
       this.setState({newProject: {
-        id: uuid.v4(),
         title: this.refs.title.value,
         category: this.refs.category.value,
         description: this.refs.description.value,

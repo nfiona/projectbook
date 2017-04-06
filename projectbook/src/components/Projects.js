@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import ProjectItem from './ProjectItem'
 
 class Projects extends Component {
-  deleteProject(id) {
-    this.props.onDelete(id);
+  projectDelete(id) {
+    this.props.onProjectDelete(id);
   }
   render() {
     let projectItems;
     if(this.props.projects) {
       projectItems = this.props.projects.map(project => {
         return (
-          <ProjectItem project={project} key={ project['_id'] } onDelete={this.deleteProject.bind(this)} />
+          <ProjectItem
+            project={project}
+            uniqueID={ project['_id']}
+            onProjectDelete={this.props.onProjectDelete}
+            onProjectUpdate={this.props.onProjectUpdate}
+            key={ project['_id'] }  />
         )
       })
     }
