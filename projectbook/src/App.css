@@ -2,14 +2,15 @@
   background-image: url("../public/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: 'Open Sans', sans-serif;
-  font-stretch: extra-expanded;
+  font-family: 'Maitree', serif;
+  display: flex;
+  flex-direction: column;
 }
 .main-heading {
   background-color: #252B2B;
   opacity: 0.75;
-  padding-top: 20px;
-  font-family: 'Prata', serif;
+  padding-top: 5px;
+  margin-top: 20px;
   text-align: left;
   text-decoration: none;
 }
@@ -22,23 +23,28 @@ nav li {
  display:inline;
 }
 #heading {
-  font-size: 35px;
-  font-weight: bold;
-  margin-left: -5px;
-  letter-spacing: 3px;
+  font-size: 70px;
+  font-family: 'Stalemate', cursive;
+  margin-left: -24px;
+  letter-spacing: 2px;
   display: inline;
 }
 #nav-one {
+  font-size: 16px;
   float: right;
-  padding: 10px;
+  padding-top: 70px;
   margin-right: 45px;
   letter-spacing: 2px;
+  font-family: 'Cormorant SC', serif;
 }
 #nav-two {
+  font-size: 16px;
   float: right;
-    padding: 10px;
-    letter-spacing: 2px;
-    margin-right: 15px;
+  padding-top: 70px;
+  letter-spacing: 2px;
+  margin-right: 28px;
+  font-family: 'Cormorant SC', serif;
+
 }
 .main-page {
   display: flex;
@@ -53,14 +59,14 @@ nav li {
 }
 h3 {
   color: white;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Cormorant SC', serif;
 }
 .add-project {
   text-align: center;
 }
 form {
   color: white;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Cormorant SC', serif;
   font-stretch: expanded !important;
   background-color:  #252B2B;
   opacity: 0.75;
@@ -70,9 +76,11 @@ form {
 }
 form input {
   color: black;
+  font-family: 'Maitree', serif !important;
+
 }
 form h5 {
-  font-family: 'Prata', serif;
+  font-family: 'Cormorant SC', serif;
 }
 .form-group {
   padding: 0 10px 10px 10px;
@@ -89,12 +97,13 @@ form h5 {
 }
 .Projects {
   width: 800px;
+  margin-left: 25px;
 }
 .Project {
   max-width: 200px;
 }
 .Projects h4 {
-  font-family: 'Prata', serif;
+  font-family: 'Cormorant SC', serif;
   text-align: center;
   color: white;
   padding: 5px;
@@ -103,6 +112,9 @@ form h5 {
   background-color: #252B2B;
   opacity: 0.75;
   width: 800px;
+}
+.searchBox {
+  margin-right: 25px;
 }
 .be-results img {
   max-width: 200px;
@@ -119,11 +131,11 @@ select {
 }
 .App span:nth-child(1) {
   animation: App-span-spin infinite 2s linear ;
-  height: 50px;
+  height: 103px;
 }
 .App span:nth-child(3) {
   animation: App-span-spin infinite 2s linear ;
-  height: 50px;
+  height: 103px;
 }
 .App span:nth-child(2) {
   margin-left: 30px;

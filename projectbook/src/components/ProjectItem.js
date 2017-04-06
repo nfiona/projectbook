@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class ProjectItem extends Component {
-   // delete function
-//   deleteProject(id) {
-//      this.props.onDelete(id);
-// }
   constructor(props) {
     super(props);
     this.state= {
@@ -16,6 +12,10 @@ class ProjectItem extends Component {
       url: ''
     };
   }
+  static defaultProps = {
+    categories: ["Web Development", "Web Design", "Graphic Design", "Photography", "Fashion", "Illustration", "Film", "Architecture", "Industrial Design", "Interior Design", "Jewelry Design", "MUA", "Product Design", "Programming", "Textile Design", "UI/UX" ]
+  }
+
   updateProject(e) {
     e.preventDefault();
      //brings up the update field when we click on the update link.
@@ -66,6 +66,10 @@ class ProjectItem extends Component {
   }
 
   render() {
+    let categoryOptions;
+    categoryOptions = this.props.categories.sort().map(category => {
+      return <option key={category} value={category}>{category}</option>
+    })
     return (
       <div className="Project">
       <a href="#"> <img src={this.props.project.cover_img} alt="" /> </a>
@@ -77,11 +81,21 @@ class ProjectItem extends Component {
       <a href="#" onClick={this.updateProject.bind(this)}>update</a>
       { (this.state.toBeUpdated)
         ? (<form onSubmit={this.handleProjectUpdate.bind(this)}>
-          <input type="text" placeholder="Update category..." value={this.state.category} onChange={this.handleCategoryChange.bind(this)} />
+        <div>
+          <label id="category"> Category </label><br />
+          <select ref="category" placeholder={this.state.category} onChange={this.handleCategoryChange.bind(this)}>
+            {categoryOptions}
+          </select>
+       </div>
+            <label id="category"> Title </label><br />
           <input type="text" placeholder="Update title..." value={this.state.title} onChange={this.handleTitleChange.bind(this)} />
+            <label id="category"> Cover Image </label><br />
           <input type="text" placeholder="Update cover image..." value={this.state.cover_img} onChange={this.handleCoverImgChange.bind(this)} />
+            <label id="category"> Description </label><br />
           <input type="text" placeholder="Update description..." value={this.state.description} onChange={this.handleDescriptionChange.bind(this)} />
-          <input type="text" placeholder="Update url..." value={this.state.url} onChange={this.handleUrlChange.bind(this)} />
+            <label id="category"> Source </label><br />
+          <input type="text" placeholder="Update source url..." value={this.state.url} onChange={this.handleUrlChange.bind(this)} /> <br />
+            <br />
           <button type="submit" className="btn btn-default" value='Update'>Update</button>
         </form>)
         : null}
