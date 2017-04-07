@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
+// import BeResults from './BeResults'
+
 
 
 class BeSearch extends Component {
+
   render() {
+
     let {handleSearchInput, handleSubmitQuery, query} = this.props
     return (
       <div className="searchBox">
@@ -11,8 +15,10 @@ class BeSearch extends Component {
             <label> Search on Behance </label> <br />
              <input onChange={(e) => handleSearchInput(e)} value={query} type="text" placeholder="Keyword(s)..." /> <br />
              <br />
-          <button type="submit" className="btn btn-default"> Search </button>
-          </div>
+             <div>
+          <button type="submit" className="btn btn-default" onClick={this.toggle}> Search </button>
+            </div>
+        </div>
        </form>
       </div>
     )

@@ -80,32 +80,28 @@ class ProjectItem extends Component {
 
   render() {
     var modal = [];
-    modal.push(
-      <div className="modal" style={this.state.toggle ? display : hide}>
-       <div className="modal-content">
-          <h6> <strong> Title: </strong> {this.props.project.title}  </h6>
-           <h6> <strong> Category: </strong> {this.props.project.category} </h6>
-           <h6> <strong> Description: </strong> {this.props.project.description} </h6>
-           <h6> <strong> Source: </strong> {this.props.project.url} </h6>
-     </div>
-       <div className="modal-footer">
-         <a className="btn" onClick={this.toggle}>Go Back</a>
+      modal.push(
+        <div className="modal" style={this.state.toggle ? display : hide}>
+
+             <h6> <strong> Title: </strong> {this.props.project.title}  </h6>
+             <h6> <strong> Category: </strong> {this.props.project.category} </h6>
+             <h6> <strong> Description: </strong> {this.props.project.description} </h6>
+             <h6> <strong> Source: </strong> {this.props.project.url} </h6>
+
+             <a className="btn" onClick={this.toggle}>&times;</a>
+
        </div>
-     </div>
-     );
+       );
     let categoryOptions;
     categoryOptions = this.props.categories.sort().map(category => {
       return <option key={category} value={category}>{category}</option>
     })
     return (
       <div className="Project">
-      <div> <a href="#" className="btn" onClick={this.toggle}> <img src={this.props.project.cover_img} alt=""/> </a> {modal}</div> 
-      <h6> <strong> Title: </strong> {this.props.project.title}  </h6>
-      <h6> <strong> Category: </strong> {this.props.project.category} </h6>
-      <h6> <strong> Description: </strong> {this.props.project.description} </h6>
-      <h6> <strong> Source: </strong> {this.props.project.url} </h6>
-      <a href="#" onClick={this.deleteProject.bind(this)}>delete</a>
-      <a href="#" onClick={this.updateProject.bind(this)}>update</a>
+      <div> <a href="#" className="btn" onClick={this.toggle}> <img src={this.props.project.cover_img} alt="" /> </a> {modal} </div>
+
+      <a id="delete" href="#" onClick={this.deleteProject.bind(this)}>delete</a> <br />
+      <a id="update" href="#" onClick={this.updateProject.bind(this)}>update</a>
       { (this.state.toBeUpdated)
         ? (<form onSubmit={this.handleProjectUpdate.bind(this)}>
         <div>

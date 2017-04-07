@@ -45,27 +45,27 @@ class AddProject extends Component {
     return (
       <div>
           <form className="form-inline" onSubmit={this.handleSubmit.bind(this)}>
-              <h5> <strong> Add Project </strong> </h5>
+              <h6> <strong> Add Project </strong> </h6><br />
             <div className="form-group">
-              <label> Title </label> <br />
+              <label> <h6>Title </h6> </label> <br />
               <input type="text" ref="title"/>
             </div>
             <div className="form-group">
-              <label id="category"> Category </label><br />
+              <label id="category"><h6> Category </h6> </label> <br />
               <select ref="category" placeholder="Category..">
               {categoryOptions}
               </select>
             </div>
             <div className="form-group">
-              <label> Description </label><br />
+              <label><h6> Description </h6></label><br />
               <input type="text" ref="description" />
             </div>
             <div className="form-group">
-              <label> Link to Source </label><br />
+              <label><h6> Link to Source </h6> </label><br />
               <input type="text" ref="source" />
             </div>
             <div className="form-group">
-              <label> Cover Image </label><br />
+              <label><h6> Cover Image </h6></label><br />
               <input type="text" ref="cover_img" />
             </div>
              <br />

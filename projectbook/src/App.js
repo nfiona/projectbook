@@ -57,11 +57,13 @@ class App extends Component {
               <li id="nav-two"> <a href="#"> Favorites </a> </li>
             </ul>
           </nav>
+          <hr></hr>
+          <br />
+          <br />
+          <br />
+          <br />
+            <AddProject onProjectSubmit={this.handleProjectSubmit.bind(this)} />
         </div>
-            <br />
-            <br />
-          <AddProject onProjectSubmit={this.handleProjectSubmit.bind(this)} />
-            <br />
             <div className="main-page">
                 <div className="all-projects">
                   <Projects
