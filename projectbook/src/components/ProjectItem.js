@@ -80,13 +80,14 @@ class ProjectItem extends Component {
 
   render() {
     var modal = [];
+    var source = this.props.project.url
       modal.push(
         <div className="modal" style={this.state.toggle ? display : hide}>
 
              <h6> <strong> Title: </strong> {this.props.project.title}  </h6>
              <h6> <strong> Category: </strong> {this.props.project.category} </h6>
              <h6> <strong> Description: </strong> {this.props.project.description} </h6>
-             <h6> <strong> Source: </strong> {this.props.project.url} </h6>
+             <h6> <a href={source}> Source </a> </h6>
 
              <a className="btn" onClick={this.toggle}>&times;</a>
 
@@ -94,7 +95,7 @@ class ProjectItem extends Component {
        );
     let categoryOptions;
     categoryOptions = this.props.categories.sort().map(category => {
-      return <option key={category} value={category}>{category}</option>
+      return <option key={category['_id']} value={category}>{category}</option>
     })
     return (
       <div className="Project">

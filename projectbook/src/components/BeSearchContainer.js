@@ -45,12 +45,16 @@ class BeSearchContainer extends Component {
     if (this.state.hasSearched){
       return(
         <div>
-        <button onClick={ e => this.handleToggleSearch(e)} className="btn btn-default" >
-          Search Again
-        </button>
+            <div>
+              <button onClick={ e => this.handleToggleSearch(e)} className="btn btn-default" >
+                Search Again
+              </button>
+            </div>
+
             <div className="be-results">
               <BeResults projects={this.state.projects}/>
             </div>
+
         </div>
       )
     } else {

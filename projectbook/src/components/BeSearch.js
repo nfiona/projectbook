@@ -12,7 +12,8 @@ class BeSearch extends Component {
       <div className="searchBox">
        <form className="form-inline" onSubmit={(e) => handleSubmitQuery(e)}>
           <div className="form-group">
-            <label> Search on Behance </label> <br />
+            <h5> <label> Search Inspirations </label> </h5>
+              <h6> *Powered by Behance </h6>
              <input onChange={(e) => handleSearchInput(e)} value={query} type="text" placeholder="Keyword(s)..." /> <br />
              <br />
              <div>
