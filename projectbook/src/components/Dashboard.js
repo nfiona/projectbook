@@ -63,13 +63,8 @@ class Dashboard extends Component {
               <li id="nav-two"> <Link to="/favorites"> Favorites </Link> </li>
             </ul>
           </nav>
-
-          <hr></hr>
-          <br />
-          <br />
-          <br />
-          <br />
-            <AddProject onProjectSubmit={this.handleProjectSubmit.bind(this)} />
+            <hr></hr>
+              <AddProject onProjectSubmit={this.handleProjectSubmit.bind(this)} />
         </div>
             <div className="main-page">
                 <div className="all-projects">

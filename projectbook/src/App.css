@@ -1,19 +1,18 @@
 .App {
-  background-image: url("../public/background.jpg");
+  background-image: url("../public/background-m.jpg");
   background-size: cover;
-  background-repeat: repeat;
-  margin: 0 auto;
   font-family: 'Maitree', serif;
   display: flex;
   flex-direction: column;
+  padding-bottom: 140px;
 }
 .main-heading {
   background-color: #252B2B;
   opacity: 0.75;
-  margin-top: 40px;
+  margin: 20px 0px 20px 0px;
   text-align: left;
   text-decoration: none;
-  height: 400px;
+  height: 320px;
 }
 .main-heading a {
   text-decoration: none;
@@ -56,7 +55,7 @@ hr {
 .main-page {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .projects-wrapper {
   flex-grow: 1;
@@ -76,8 +75,6 @@ form {
   color: white !important;
   font-family: 'Cormorant SC', serif;
   font-stretch: expanded !important;
-  /*background-color:  #252B2B;
-  opacity: 0.75;*/
   text-align: center;
   padding: 1px 0 12px 0;
   letter-spacing: 2px;
@@ -109,6 +106,7 @@ form h6 {
 .Project img {
   max-width: 200px;
   height: 150px;
+  background-size: cover;
   opacity: 1.0;
   filter: alpha(opacity=100);
 }
@@ -136,13 +134,13 @@ form h6 {
   width: 810px;
 }
 .searchBox {
-  margin-right: 25px;
-  margin-top: 20px;
+  margin: 20px 60px 0px 0px;
 }
 .be-results {
   max-height: 640px;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 .be-results img {
   max-width: 200px;
