@@ -50,11 +50,9 @@ class BeSearchContainer extends Component {
                 Search Again
               </button>
             </div>
-
-            <div className="be-results">
-              <BeResults projects={this.state.projects}/>
-            </div>
-
+              <div className="be-results">
+                <BeResults projects={this.state.projects}/>
+              </div>
         </div>
       )
     } else {

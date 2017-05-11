@@ -46,29 +46,29 @@ class AddProject extends Component {
       <div>
           <form className="form-inline" onSubmit={this.handleSubmit.bind(this)}>
               <h6> <strong> Add Project </strong> </h6><br />
-            <div className="form-group">
-              <label> <h6>Title </h6> </label> <br />
-              <input type="text" ref="title"/>
-            </div>
-            <div className="form-group">
-              <label id="category"><h6> Category </h6> </label> <br />
-              <select ref="category" placeholder="Category..">
-              {categoryOptions}
-              </select>
-            </div>
-            <div className="form-group">
-              <label><h6> Description </h6></label><br />
-              <input type="text" ref="description" />
-            </div>
-            <div className="form-group">
-              <label><h6> Link to Source </h6> </label><br />
-              <input type="text" ref="source" />
-            </div>
-            <div className="form-group">
-              <label><h6> Cover Image </h6></label><br />
-              <input type="text" ref="cover_img" />
-            </div>
-             <br />
+                <div className="form-group">
+                    <label> <h6>Title </h6> </label> <br />
+                      <input type="text" ref="title"/>
+                  </div>
+                  <div className="form-group">
+                    <label id="category"><h6> Category </h6> </label> <br />
+                      <select ref="category" placeholder="Category..">
+                        {categoryOptions}
+                      </select>
+                  </div>
+                <div className="form-group">
+                  <label><h6> Description </h6></label><br />
+                    <input type="text" ref="description" />
+                </div>
+                <div className="form-group">
+                  <label><h6> Link to Source </h6> </label><br />
+                    <input type="text" ref="source" />
+                </div>
+                <div className="form-group">
+                  <label><h6> Cover Image </h6></label><br />
+                    <input type="text" ref="cover_img" />
+                </div>
+                <br />
               <button type="submit" className="btn btn-default" value='Post'> Add </button>
           </form>
       </div>

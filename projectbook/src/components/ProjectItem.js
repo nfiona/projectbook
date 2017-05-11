@@ -83,14 +83,11 @@ class ProjectItem extends Component {
     var source = this.props.project.url
       modal.push(
         <div className="modal" style={this.state.toggle ? display : hide}>
-
              <h6> <strong> Title: </strong> {this.props.project.title}  </h6>
              <h6> <strong> Category: </strong> {this.props.project.category} </h6>
              <h6> <strong> Description: </strong> {this.props.project.description} </h6>
              <h6> <a href={source}> Source </a> </h6>
-
              <a className="btn" onClick={this.toggle}>&times;</a>
-
        </div>
        );
     let categoryOptions;
@@ -107,23 +104,23 @@ class ProjectItem extends Component {
         ? (<form onSubmit={this.handleProjectUpdate.bind(this)}>
         <div>
           <label id="category"> Category </label><br />
-          <select ref="category" placeholder={this.state.category} onChange={this.handleCategoryChange.bind(this)}>
-            {categoryOptions}
-          </select>
-       </div>
-            <label id="category"> Title </label><br />
-          <input type="text" placeholder="Update title..." value={this.state.title} onChange={this.handleTitleChange.bind(this)} />
-            <label id="category"> Cover Image </label><br />
-          <input type="text" placeholder="Update cover image..." value={this.state.cover_img} onChange={this.handleCoverImgChange.bind(this)} />
-            <label id="category"> Description </label><br />
-          <input type="text" placeholder="Update description..." value={this.state.description} onChange={this.handleDescriptionChange.bind(this)} />
-            <label id="category"> Source </label><br />
-          <input type="text" placeholder="Update source url..." value={this.state.url} onChange={this.handleUrlChange.bind(this)} /> <br />
-            <br />
-          <button type="submit" className="btn btn-default" value='Update'>Update</button>
-        </form>)
-        : null}
-      </div>
+            <select ref="category" placeholder={this.state.category} onChange={this.handleCategoryChange.bind(this)}>
+              {categoryOptions}
+            </select>
+             </div>
+                  <label id="category"> Title </label><br />
+                    <input type="text" placeholder="Update title..." value={this.state.title} onChange={this.handleTitleChange.bind(this)} />
+                      <label id="category"> Cover Image </label><br />
+                        <input type="text" placeholder="Update cover image..." value={this.state.cover_img} onChange={this.handleCoverImgChange.bind(this)} />
+                          <label id="category"> Description </label><br />
+                        <input type="text" placeholder="Update description..." value={this.state.description} onChange={this.handleDescriptionChange.bind(this)} />
+                      <label id="category"> Source </label><br />
+                    <input type="text" placeholder="Update source url..." value={this.state.url} onChange={this.handleUrlChange.bind(this)} /> <br />
+                  <br />
+                <button type="submit" className="btn btn-default" value='Update'>Update</button>
+              </form>)
+              : null}
+            </div>
     )
   }
 }
