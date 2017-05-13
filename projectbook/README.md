@@ -16,3 +16,8 @@
 ## Approach ##
 
 Developed full-stack application with full CRUD functionality and incorporated third party API. Wireframed components, features, and design blueprints with iterative planning.
+
+## Launch App ##
+
+Local server : `$ mongod`
+Development: `$ npm run start-dev` 
