@@ -19,5 +19,6 @@ Developed full-stack application with full CRUD functionality and incorporated t
 
 ## Launch App ##
 
-Local server : `$ mongod`
-Development: `$ npm run start-dev` 
+- Run MongoDB : `$ mongod`
+- Development: `$ npm run start-dev`
+- Browser: http://localhost:3000/

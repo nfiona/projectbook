@@ -13,7 +13,15 @@ class BeSearchContainer extends Component {
       query: '',
       hasSearched: false,
       projects: [],
+      fieldErrors: {}
     }
+  }
+
+  validate(query) {
+    const errors = {};
+    if (!query.value) errors.value = "Please add field"
+
+    return errors;
   }
 
   // updates `query` value in state whenever a change is made to the input field
@@ -31,14 +39,33 @@ class BeSearchContainer extends Component {
 // triggered whenever the user submits the Search form
   onSubmitQuery(e) {
     e.preventDefault()
-    let component = this
-    queryBehance(this.state.query).done( data => {
-      component.setState({
-        query: '',
-        hasSearched: !component.state.hasSearched,
-        projects: data.projects,
+      let component = this
+      queryBehance(this.state.query).done( data => {
+        component.setState({
+          query: '',
+          hasSearched: !component.state.hasSearched,
+          projects: data.projects,
       })
     })
+      const query = this.state.query
+      const fieldErrors = this.validate(query);
+      this.setState({ fieldErrors})
+    if(Object.keys(fieldErrors).length)  {
+      console.log("need value")
+      this.setState({query: ''})
+      this.clearFields();
+    }
+  }
+
+
+  clearFields(){
+    this.setState({
+      query: '',
+      hasSearched: false,
+      projects: [],
+      fieldErrors: {}
+      }
+    )
   }
 
   render() {

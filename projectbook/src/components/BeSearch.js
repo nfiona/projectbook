@@ -6,7 +6,7 @@ import React, { Component } from 'react'
 class BeSearch extends Component {
 
   render() {
-
+   console.log("search is rendering")
     let {handleSearchInput, handleSubmitQuery, query} = this.props
     return (
       <div className="searchBox">

@@ -91,7 +91,7 @@ class ProjectItem extends Component {
     var source = this.props.project.url
       modal.push(
         <div className="modal" style={this.state.toggle ? display : hide}>
-            <div class="modal-content">
+            <div className="modal-content">
                <h6> <strong> Title: </strong> {this.props.project.title}  </h6>
                <h6> <strong> Category: </strong> {this.props.project.category} </h6>
                <h6> <strong> Description: </strong> {this.props.project.description} </h6>
@@ -99,7 +99,7 @@ class ProjectItem extends Component {
                <br/>
                <br/>
              </div>
-             <div class="modal-footer">
+             <div className="modal-footer">
                 <button className="btn" onClick={this.toggle}>Close</button>
              </div>
        </div>
